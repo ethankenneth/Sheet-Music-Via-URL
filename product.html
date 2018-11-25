@@ -1,0 +1,64 @@
+<!doctype html>
+<html>
+<head>
+	<title>View Product</title>
+	<script src="js/products.js"></script>
+
+</head>
+
+<body>
+
+	<table border="1">
+		<tr>
+			<td>ID</td>
+			<td>
+				<h1 id="id"></h1>
+			</td>
+		</tr>
+		<tr>
+			<td>Description</td>
+			<td>
+				<h2 id="description"></h2>
+			</td>
+		</tr>
+		<tr>
+			<td>price</td>
+			<td>
+				<h3 id="price"></h3>
+			</td>
+		</tr>
+		<tr>
+			<td>ID</td>
+			<td>
+				<img id="image" src="#" width="400" height="400"></td>
+			</td>
+		</tr>
+	</table>
+
+	<script>
+		var queryData = location.search;
+		queryData = queryData.substring(1, queryData.length);
+		queryData = queryData.split("&");
+		for (var i = 0; i < queryData.length; i++) {
+		switch (queryData[i].split("=")[0]) {
+			case "index":
+				var index = queryData[i].split("=")[1]
+				document.getElementById("id").innerHTML = shortProductDesc[index];
+				document.getElementById("description").innerHTML = productDesc[index];
+				document.getElementById("price").innerHTML = price[index].toFixed(2);
+				document.getElementById("image").src = imgSrc[index];
+				break;
+			case "userid":
+				break;
+			default:
+				break;
+
+		}//end switch
+		}//end for loop
+		//alert(queryData.length);
+
+
+	</script>
+
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!doctype html>
+<html>
+<head>
+	<title>Moe's Music Stop</title>
+	<script src="js/products.js"></script>
+
+	<script>
+		window.onload = setup;
+
+		function setup(){
+			var tableStr = "<table border = '1'>";
+
+				for (var i = 0; i < productDesc.length; i++) {
+					tableStr += "<tr>";
+
+						tableStr += "<td>";
+							tableStr += "<img src =' " + imgSrc[i] + " ' onclick = 'openProduct(" + i + ")' width = '125' height = '90' />";
+						tableStr += "</td>";
+
+							tableStr += "<td>";
+								tableStr += productDesc[i];
+							tableStr += "</td>";
+
+							tableStr += "<td>";
+								tableStr += price[i].toFixed(2);
+							tableStr += "</td>";
+
+					tableStr += "</tr>";
+
+				}//end for loop
+
+			tableStr += "</table>";
+
+			document.getElementById("productList").innerHTML = tableStr;
+		}//end function setUp
+
+		function openProduct(index) {
+			window.location = "product.html?index=" + index + "&userid=123456";
+		}//end function openProduct
+
+
+	</script>
+
+</head>
+<body>
+	<h1>Moe's Music</h1>
+	<div id="productList"></div>
+</body>
+</html>
